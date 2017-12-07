@@ -69,7 +69,7 @@ public class ParqueaderoREST {
             } else {
                 Carros carro = new Carros();
                 carro.setHoraLlegada(horaLlegada);
-                carro.setPlacaCarro(placa);
+                carro.setId(placa);
                 carrosFacade.create(carro);
                 puestos.setCarros(carro);
                 puestoEJB.edit(puestos);

@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Carros.findAll", query = "SELECT c FROM Carros c")
-    , @NamedQuery(name = "Carros.findByPlacaCarro", query = "SELECT c FROM Carros c WHERE c.placaCarro = :placaCarro")
+    , @NamedQuery(name = "Carros.findById", query = "SELECT c FROM Carros c WHERE c.id = :id")
     , @NamedQuery(name = "Carros.findByHoraLlegada", query = "SELECT c FROM Carros c WHERE c.horaLlegada = :horaLlegada")})
 public class Carros implements Serializable {
 
@@ -40,8 +40,8 @@ public class Carros implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "placa_carro")
-    private String placaCarro;
+    @Column(name = "id")
+    private String id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "hora_llegada")
@@ -61,21 +61,21 @@ public class Carros implements Serializable {
     public Carros() {
     }
 
-    public Carros(String placaCarro) {
-        this.placaCarro = placaCarro;
+    public Carros(String id) {
+        this.id = id;
     }
 
-    public Carros(String placaCarro, int horaLlegada) {
-        this.placaCarro = placaCarro;
+    public Carros(String id, int horaLlegada) {
+        this.id = id;
         this.horaLlegada = horaLlegada;
     }
 
-    public String getPlacaCarro() {
-        return placaCarro;
+    public String getId() {
+        return id;
     }
 
-    public void setPlacaCarro(String placaCarro) {
-        this.placaCarro = placaCarro;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getHoraLlegada() {
@@ -106,7 +106,7 @@ public class Carros implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (placaCarro != null ? placaCarro.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -117,7 +117,7 @@ public class Carros implements Serializable {
             return false;
         }
         Carros other = (Carros) object;
-        if ((this.placaCarro == null && other.placaCarro != null) || (this.placaCarro != null && !this.placaCarro.equals(other.placaCarro))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -125,7 +125,7 @@ public class Carros implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.adsi.jpa.entites.Carros[ placaCarro=" + placaCarro + " ]";
+        return "co.edu.sena.adsi.jpa.entites.Carros[ placaCarro=" + id + " ]";
     }
 
 }

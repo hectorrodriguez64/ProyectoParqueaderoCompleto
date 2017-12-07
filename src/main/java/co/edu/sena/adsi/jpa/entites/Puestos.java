@@ -45,7 +45,7 @@ public class Puestos implements Serializable {
     @NotNull
     @Column(name = "numero_puesto")
     private int numeroPuesto;
-    @JoinColumn(name = "placa_carro", referencedColumnName = "placa_carro")
+    @JoinColumn(name = "id_carro", referencedColumnName = "id")
     @OneToOne()
     private Carros carros;
    /* @OneToOne(mappedBy = "puestos")
